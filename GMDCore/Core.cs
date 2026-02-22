@@ -10,9 +10,9 @@ public class Core : Game
 {
     private int _virtualWidth;
     private int _virtualHeight;
-    protected static SpriteBatch SpriteBatch;
     protected GraphicsDeviceManager Graphics;
     protected Matrix ScreenScaleMatrix;
+    public SpriteBatch SpriteBatch { get; set; }
     public static InputManager Input { get; set; } = new();
 
     public Core(string title, int windowWidth, int windowHeight, int virtualWidth, int virtualHeight)
