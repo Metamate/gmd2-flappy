@@ -20,7 +20,7 @@ diff tool) to see exactly what changed.
 | `Flappy9` | State machine | `IState`, `StateMachine`, title and play states |
 | `Flappy10` | Scoring | Score while playing, and a score state |
 | `Flappy11` | Countdown | A countdown state before playing |
-| `Flappy12` | Audio | Music and sound effects |
+| `Flappy12` | Audio | Music and sound effects, in an `Audio` Singleton |
 
 All steps share the **GMDCore** library, which contains the final versions of the reusable
 classes (`Core`, input, …).

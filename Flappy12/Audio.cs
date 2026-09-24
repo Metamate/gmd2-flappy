@@ -4,20 +4,44 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Flappy12;
 
-public static class Audio
+// A Singleton: exactly one Audio object exists, reached through Audio.Instance.
+// Compare with the static Art class: both give global access, but Audio is an object,
+// so it could implement an interface or be passed to the code that needs it.
+public class Audio
 {
-    public static SoundEffect Flap { get; set; }
-    public static SoundEffect Hurt { get; set; }
-    public static SoundEffect Explosion { get; set; }
-    public static SoundEffect Score { get; set; }
-    public static Song BackgroundMusic { get; set; }
+    public static Audio Instance { get; } = new Audio();
 
-    public static void LoadContent(ContentManager content)
+    private SoundEffect _flap;
+    private SoundEffect _hurt;
+    private SoundEffect _explosion;
+    private SoundEffect _score;
+    private Song _music;
+
+    // Private, so no other code can create a second instance.
+    private Audio() { }
+
+    public void LoadContent(ContentManager content)
     {
-        Flap = content.Load<SoundEffect>("audio/flap");
-        Hurt = content.Load<SoundEffect>("audio/hurt");
-        Explosion = content.Load<SoundEffect>("audio/explosion");
-        Score = content.Load<SoundEffect>("audio/score");
-        BackgroundMusic = content.Load<Song>("audio/marios_way");
+        _flap = content.Load<SoundEffect>("audio/flap");
+        _hurt = content.Load<SoundEffect>("audio/hurt");
+        _explosion = content.Load<SoundEffect>("audio/explosion");
+        _score = content.Load<SoundEffect>("audio/score");
+        _music = content.Load<Song>("audio/marios_way");
+    }
+
+    public void PlayMusic()
+    {
+        MediaPlayer.IsRepeating = true;
+        MediaPlayer.Play(_music);
+    }
+
+    public void PlayFlap() => _flap.Play();
+
+    public void PlayScore() => _score.Play();
+
+    public void PlayCrash()
+    {
+        _hurt.Play();
+        _explosion.Play();
     }
 }

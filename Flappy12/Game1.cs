@@ -3,7 +3,6 @@ using GMDCore;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 
 namespace Flappy12;
 
@@ -28,14 +27,13 @@ public class Game1 : Core
         base.Initialize();
         GameState = new StateMachine(this);
         GameState.ChangeState(GameState.TitleState);
-        MediaPlayer.Play(Audio.BackgroundMusic);
-        MediaPlayer.IsRepeating = true;
+        Audio.Instance.PlayMusic();
     }
 
     protected override void LoadContent()
     {
         Art.LoadContent(Content);
-        Audio.LoadContent(Content);
+        Audio.Instance.LoadContent(Content);
     }
 
     protected override void Update(GameTime gameTime)

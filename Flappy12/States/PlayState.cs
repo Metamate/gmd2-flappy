@@ -34,8 +34,7 @@ public class PlayState(Game1 game) : IState
 
         if (_bird.Position.Y > Game1.VirtualHeight - Art.Ground.Height - Art.Bird.Height || _bird.Position.Y < 0)
         {
-            Audio.Hurt.Play();
-            Audio.Explosion.Play();
+            Audio.Instance.PlayCrash();
             game.GameState.ChangeState(game.GameState.ScoreState);
         }
 
@@ -54,13 +53,12 @@ public class PlayState(Game1 game) : IState
             {
                 Score++;
                 pipePair.Scored = true;
-                Audio.Score.Play();
+                Audio.Instance.PlayScore();
             }
 
             if (_bird.Collides(pipePair.TopPipe) || _bird.Collides(pipePair.BottomPipe))
             {
-                Audio.Hurt.Play();
-                Audio.Explosion.Play();
+                Audio.Instance.PlayCrash();
                 game.GameState.ChangeState(game.GameState.ScoreState);
                 break;
             }

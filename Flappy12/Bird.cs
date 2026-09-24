@@ -16,7 +16,7 @@ public class Bird(Vector2 position)
     {
         if (Core.Input.Keyboard.WasKeyJustPressed(Keys.Space))
         {
-            Audio.Flap.Play();
+            Audio.Instance.PlayFlap();
             Velocity = new Vector2(Velocity.X, -JumpForce);
         }
 
