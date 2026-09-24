@@ -27,11 +27,12 @@ classes (`Core`, input, …).
 
 ## Content
 
-Each step has its own `Assets` folder with the raw assets that step uses (fonts, images,
-sounds). They are built by the **content builder** (MonoGame 3.8.5+), shared by all steps:
+All steps share one folder of raw assets (fonts, images, sounds), built by the **content
+builder** (MonoGame 3.8.5+):
 
 ```text
 Content/
+├── Assets/                  # The raw assets, shared by all steps
 ├── Builder/Builder.cs       # The rules for building the assets, in C#
 ├── BuildContent.targets     # Runs the builder when a game project builds
 └── Content.csproj
@@ -41,8 +42,9 @@ There is no `.mgcb` file and no MGCB Editor. `Builder.cs` decides how each kind 
 processed. Each step project imports `BuildContent.targets`, so building a step also builds
 its assets into its output folder, where `Content.Load` finds them.
 
-To add an asset, put it in the step's `Assets` folder and, if no existing rule matches it,
-add a rule in `Builder.cs`.
+To add an asset, put it in `Content/Assets` and, if no existing rule matches it, add a rule
+in `Builder.cs`. Compare the `Content.Load` calls in neighbouring steps to see when each
+asset comes into use.
 
 ## Running a step
 
