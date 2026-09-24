@@ -13,7 +13,7 @@ diff tool) to see exactly what changed.
 | `Flappy2` | Parallax | Infinitely scrolling layers at different speeds |
 | `Flappy3` | Bird & assets | A `Bird` class and a static `Art` class |
 | `Flappy4` | Gravity | The bird falls |
-| `Flappy5` | Flap | `InputManager` in GMDCore; flapping with Space |
+| `Flappy5` | Flap | `InputManager` in GMDCore (keyboard and mouse); flapping with Space or a click |
 | `Flappy6` | Infinite pipes | Pipes spawning on a timer |
 | `Flappy7` | Pipe pairs | `PipePair` with a gap at a varying height |
 | `Flappy8` | Collisions | Hitting a pipe, the ground or the ceiling |
@@ -31,8 +31,8 @@ classes (`Core`, input, …).
 later repository's `GMDCore` keeps everything from the previous session and adds to it.
 
 - `Core`: a `Game` base class with a window, a virtual resolution and screen scaling.
-- `Input/InputManager`, `Input/KeyboardInfo`: keyboard state with "just pressed" and
-  "just released" checks.
+- `Input/InputManager`, `Input/KeyboardInfo`, `Input/MouseInfo`: keyboard and mouse state
+  with "just pressed" and "just released" checks.
 
 ## Content
 

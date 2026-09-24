@@ -18,7 +18,7 @@ public class ScoreState(Game1 game) : IState
 
     public void Update(GameTime gameTime)
     {
-        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.Space))
+        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.Space) || Core.Input.Mouse.WasLeftButtonJustPressed)
         {
             game.GameState.ChangeState(game.GameState.CountdownState);
         }

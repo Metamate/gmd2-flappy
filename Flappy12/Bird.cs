@@ -14,7 +14,7 @@ public class Bird(Vector2 position)
 
     public void Update(GameTime gameTime)
     {
-        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.Space))
+        if (Core.Input.Keyboard.WasKeyJustPressed(Keys.Space) || Core.Input.Mouse.WasLeftButtonJustPressed)
         {
             Audio.Instance.PlayFlap();
             Velocity = new Vector2(Velocity.X, -JumpForce);
