@@ -25,6 +25,15 @@ diff tool) to see exactly what changed.
 All steps share the **GMDCore** library, which contains the final versions of the reusable
 classes (`Core`, input, …).
 
+## New in GMDCore
+
+`GMDCore` starts in this session: reusable code that every later game builds on. Each
+later repository's `GMDCore` keeps everything from the previous session and adds to it.
+
+- `Core`: a `Game` base class with a window, a virtual resolution and screen scaling.
+- `Input/InputManager`, `Input/KeyboardInfo`: keyboard state with "just pressed" and
+  "just released" checks.
+
 ## Content
 
 All steps share one folder of raw assets (fonts, images, sounds), built by the **content
